@@ -1,6 +1,6 @@
 /**
  * @file mutation type
- * @author ienix(enix@foxmail.com)
+ * @author ienix(guoaimin1@tal.com)
  *
  * @since 2018/12/24 routeanalysis
  */

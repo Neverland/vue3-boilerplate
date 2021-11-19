@@ -10,7 +10,6 @@
 let path = require('path');
 let {merge} = require('webpack-merge');
 
-let OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
 let TerserWebpackPlugin = require('terser-webpack-plugin');
 
 let all = require('./all');
@@ -30,7 +29,7 @@ let mainConfig = {
         ],
     },
     plugins: [
-        new OptimizeCssAssetsWebpackPlugin(),
+        //
     ],
     optimization: {
         minimize: true,

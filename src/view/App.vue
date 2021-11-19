@@ -6,7 +6,7 @@
 <script lang="ts">
 /**
  * @file app
- * @author ienix(enix@foxmail.com)
+ * @author ienix(guoaimin1@tal.com)
  *
  * @since 2021/11/18
  */
