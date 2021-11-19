@@ -1,6 +1,6 @@
 /**
  * @file vuex store
- * @author ienix(guoaimin1@tal.com)
+ * @author ienix(enix@foxmail.com)
  *
  * @since 2021/11/19
  */
