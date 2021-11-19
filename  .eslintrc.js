@@ -1,7 +1,7 @@
 module.exports = {
     extends: [
-        '@ecomfe/eslint-config/strict',
         '@ecomfe/eslint-config',
+        '@ecomfe/eslint-config/typescript',
     ],
     rules: {
         'spaced-comment': 0,

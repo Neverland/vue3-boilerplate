@@ -6,6 +6,7 @@
   "dependencies": {
     "axios": "^0.24.0",
     "element-plus": "^1.2.0-beta.3",
+    "lint-staged": "^12.0.3",
     "query-string": "^7.0.1",
     "store": "^2.0.12",
     "stylelint": "^14.1.0",
@@ -25,6 +26,8 @@
     "@babel/runtime": "^7.16.3",
     "@ecomfe/eslint-config": "^7.3.0",
     "@ecomfe/stylelint-config": "^1.1.2",
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
     "@vue/compiler-sfc": "^3.2.22",
     "babel-loader": "^8.2.3",
     "babel-plugin-async-to-promises": "^1.0.5",
@@ -62,11 +65,17 @@
     "webpack-jdists-loader": "^0.0.33",
     "webpack-merge": "^5.8.0"
   },
+  "lint-staged": {
+    "*.{ts,vue, css}": [
+      "eslint --no-ignore --config .eslintrc.js --ext .ts,.vue --fix"
+    ]
+  },
   "scripts": {
+    "pre-commit": "lint-staged",
     "prod": "cross-env NODE_ENV=production webpack --config build/webpack.prod.js",
     "dev": "cross-env NODE_ENV=development ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config build/webpack.dev.js --open",
     "prepare": "husky install"
   },
   "author": "",
-  "license": "ISC"
+  "license": "MIT"
 }
