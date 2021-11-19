@@ -1,0 +1,37 @@
+{
+    "parserOpts": {
+        "allowAwaitOutsideFunction": true
+    },
+    "presets": [
+        "modern-browsers",
+        ["@babel/preset-env", {
+            "modules": false,
+            "targets": {
+                "chrome": 84,
+                "safari": 12
+            }
+        }],
+        [
+            "@babel/preset-typescript",
+            {
+                "allExtensions": true
+            }
+        ]
+    ],
+    "plugins": [
+        ["@babel/plugin-proposal-private-property-in-object", { "loose": true }],
+        ["@babel/plugin-proposal-private-methods", { "loose": true }],
+        ["@babel/plugin-proposal-decorators", {"legacy": true }],
+        ["@babel/plugin-proposal-class-properties", {"loose": true}],
+        "@babel/plugin-syntax-top-level-await",
+        "transform-vue-jsx"
+    ],
+    "ignore": [
+        "node_modules",
+        "assets",
+        "proto",
+        "dist",
+        "build"
+    ],
+    "highlightCode": true
+}
