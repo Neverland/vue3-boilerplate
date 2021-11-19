@@ -138,7 +138,7 @@ let config = {
         }),
         new VueLoaderPlugin(),
         new HtmlWebpackPlugin({
-            title: '彼芯',
+            title: 'Vue3',
             chunks: ['app'],
             template: resolve('/src/index.html'),
             filename: 'index.html',
