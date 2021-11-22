@@ -12,6 +12,8 @@ let path = require('path');
 let {merge} = require('webpack-merge');
 let all = require('./all');
 
+let BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
 let resolve = dir => path.join(process.cwd(), dir);
 let mainConfig = {
     mode: 'development',
@@ -31,6 +33,7 @@ let mainConfig = {
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
+        new BundleAnalyzerPlugin(),
     ],
     devServer: {
         historyApiFallback: true,
