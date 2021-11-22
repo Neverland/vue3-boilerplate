@@ -33,7 +33,9 @@ let mainConfig = {
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
-        new BundleAnalyzerPlugin(),
+        new BundleAnalyzerPlugin({
+            analyzerHost: ip.address(),
+        }),
     ],
     devServer: {
         historyApiFallback: true,

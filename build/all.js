@@ -35,7 +35,7 @@ let config = {
     },
     output: {
         path: resolve('./dist/'),
-        filename: '[id].[contenthash:5].js',
+        filename: '[id].[hash:5].js',
         globalObject: 'this',
     },
     module: {
@@ -82,7 +82,7 @@ let config = {
                     {
                         loader: 'url-loader',
                         options: {
-                            name: '[path][id].[contenthash:5].[ext]',
+                            name: '[path][id].[hash:5].[ext]',
                             limit: false,
                         },
                     },
@@ -95,7 +95,7 @@ let config = {
                     options: {
                         inline: false,
                         fallback: false,
-                        name: '[id].[contenthash:5].[ext]',
+                        name: '[id].[hash:5].[ext]',
                     },
                 },
             },
@@ -104,7 +104,7 @@ let config = {
                 use: {
                     loader: 'file-loader',
                     options: {
-                        name: '[path][id].[contenthash:5].[ext]',
+                        name: '[path][id].[hash:5].[ext]',
                     },
                 },
             },
@@ -151,8 +151,8 @@ let config = {
             /* eslint-enable */
         }),
         new MiniCssExtractPlugin({
-            filename: '[id].[contenthash:5].css',
-            chunkFilename: '[id].[contenthash:5].css',
+            filename: '[id].[hash:5].css',
+            chunkFilename: '[id].[hash:5].css',
         }),
     ],
     optimization: {
@@ -164,7 +164,7 @@ let config = {
         mergeDuplicateChunks: true,
         splitChunks: {
             chunks: 'all',
-            maxSize: 1200000,
+            maxSize: 1000000,
             minChunks: 1,
             maxAsyncRequests: 5,
             maxInitialRequests: 3,
@@ -186,7 +186,7 @@ let config = {
                     enforce: true,
                     reuseExistingChunk: true,
                     test: /[\\/]node_modules[\\/]/,
-                    filename: '[id].[contenthash:5].js',
+                    filename: '[id].[hash:5].js',
                     chunks: 'all',
                     priority: -10,
                 },

@@ -6,9 +6,10 @@ module.exports = {
     parser: '@typescript-eslint/parser',
     parserOptions: {
         project: './tsconfig.json',
+        extraFileExtensions: ['.vue'],
     },
     plugins: [
-        '@typescript-eslint'
+        '@typescript-eslint',
     ],
     rules: {
         'spaced-comment': 0,
