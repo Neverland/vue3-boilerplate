@@ -3,6 +3,13 @@ module.exports = {
         '@ecomfe/eslint-config',
         '@ecomfe/eslint-config/typescript',
     ],
+    parser: '@typescript-eslint/parser',
+    parserOptions: {
+        project: './tsconfig.json',
+    },
+    plugins: [
+        '@typescript-eslint'
+    ],
     rules: {
         'spaced-comment': 0,
         'vue/comment-directive': 0,
@@ -11,6 +18,7 @@ module.exports = {
         'max-lines': 0,
         'vue/no-parsing-error': 0,
         'vue/no-unused-vars': 0,
+        '@typescript-eslint/await-thenable': 0,
         'no-param-reassign': [
             'error',
             {

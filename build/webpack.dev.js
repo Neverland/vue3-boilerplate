@@ -34,7 +34,6 @@ let mainConfig = {
     ],
     devServer: {
         historyApiFallback: true,
-        hot: true,
         compress: true,
         host: ip.address(),
         port: '8080',

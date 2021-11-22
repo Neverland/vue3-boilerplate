@@ -7,9 +7,8 @@
 
 import {createApp} from 'vue';
 
-import ElementPlus from 'element-plus'
+import ElementPlus from 'element-plus';
 
-import {api} from '@/api';
 import store from '@/store';
 import router from '@/router';
 

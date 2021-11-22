@@ -28,14 +28,14 @@ let threadPool = HappyPack.ThreadPool({size: os.cpus().length});
 let resolve = dir => path.join(process.cwd(), dir);
 
 let config = {
-    cache: true,
+    // cache: true,
     mode: 'production',
     entry: {
         app: resolve('/src/startup.ts'),
     },
     output: {
         path: resolve('./dist/'),
-        filename: '[name].[hash:5].js',
+        filename: '[id].[contenthash:5].js',
         globalObject: 'this',
     },
     module: {
@@ -82,7 +82,7 @@ let config = {
                     {
                         loader: 'url-loader',
                         options: {
-                            name: '[path][name].[hash:5].[ext]',
+                            name: '[path][id].[contenthash:5].[ext]',
                             limit: false,
                         },
                     },
@@ -95,7 +95,7 @@ let config = {
                     options: {
                         inline: false,
                         fallback: false,
-                        name: '[name].[contenthash:5].[ext]',
+                        name: '[id].[contenthash:5].[ext]',
                     },
                 },
             },
@@ -104,7 +104,7 @@ let config = {
                 use: {
                     loader: 'file-loader',
                     options: {
-                        name: '[path][name].[hash:5].[ext]',
+                        name: '[path][id].[contenthash:5].[ext]',
                     },
                 },
             },
@@ -151,41 +151,44 @@ let config = {
             /* eslint-enable */
         }),
         new MiniCssExtractPlugin({
-            filename: '[name].[hash:5].css',
-            chunkFilename: '[id].[hash:5].css',
+            filename: '[id].[contenthash:5].css',
+            chunkFilename: '[id].[contenthash:5].css',
         }),
     ],
     optimization: {
         mangleWasmImports: true,
         concatenateModules: true,
         runtimeChunk: true,
-        noEmitOnErrors: true,
         removeAvailableModules: true,
         removeEmptyChunks: true,
         mergeDuplicateChunks: true,
         splitChunks: {
             chunks: 'all',
-            minSize: 20000,
+            maxSize: 1200000,
             minChunks: 1,
             maxAsyncRequests: 5,
             maxInitialRequests: 3,
-            automaticNameDelimiter: '~',
+            automaticNameDelimiter: '+',
             cacheGroups: {
-                vendor: {
-                    test: /[\\/]node_modules[\\/]/,
-                    priority: -10,
-                },
                 vue: {
-                    test: /[\\/]node_modules\/vue.*[\\/]/,
+                    test: /[\\/]node_modules[\\/](vue|vuex|vue-router)/,
                     priority: 50,
                 },
-                elementPlus: {
+                element: {
                     test: /[\\/]node_modules\/element-plus.*[\\/]/,
                     priority: 50,
                 },
                 axios: {
                     test: /[\\/]node_modules\/axios.*[\\/]/,
                     priority: 50,
+                },
+                default: {
+                    enforce: true,
+                    reuseExistingChunk: true,
+                    test: /[\\/]node_modules[\\/]/,
+                    filename: '[id].[contenthash:5].js',
+                    chunks: 'all',
+                    priority: -10,
                 },
             },
         },
