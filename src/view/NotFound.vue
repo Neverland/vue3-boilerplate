@@ -11,9 +11,9 @@
  * @since 2021/11/18
  */
 
-import {ref, defineComponent} from 'vue';
+import {ref} from 'vue';
 
-export default defineComponent({
+export default {
     setup(props) {
         let notFound = ref('The page is not found!');
 
@@ -21,7 +21,7 @@ export default defineComponent({
             notFound
         };
     },
-});
+};
 
 </script>
 

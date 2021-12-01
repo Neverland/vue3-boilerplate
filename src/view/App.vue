@@ -11,9 +11,9 @@
  * @since 2021/11/18
  */
 
-import {ref, defineComponent} from 'vue';
+import {ref} from 'vue';
 
-export default defineComponent({
+export default{
     setup(props) {
         let name = ref('999');
 
@@ -24,7 +24,7 @@ export default defineComponent({
     mounted() {
 
     },
-});
+};
 </script>
 
 <style lang="less" scoped>

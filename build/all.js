@@ -58,7 +58,12 @@ let config = {
                 test: /\.css$/,
                 use: [
                     'style-loader',
-                    'css-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            importLoaders: 1,
+                        },
+                    },
                 ],
                 include: /\.module\.css$/,
             },
@@ -72,6 +77,7 @@ let config = {
             {
                 test: /\.less$/,
                 use: [
+                    'vue-style-loader',
                     'css-loader',
                     'less-loader',
                 ],
@@ -153,6 +159,10 @@ let config = {
         new MiniCssExtractPlugin({
             filename: '[id].[hash:5].css',
             chunkFilename: '[id].[hash:5].css',
+        }),
+        new webpack.DefinePlugin({
+            __VUE_OPTIONS_API__: JSON.stringify(true),
+            __VUE_PROD_DEVTOOLS__: JSON.stringify(false)
         }),
     ],
     optimization: {
