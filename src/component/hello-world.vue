@@ -19,7 +19,6 @@ export default {
     setup() {
         let banner = ref('Component: Hello world !');
 
-
         return {
             banner,
         };
