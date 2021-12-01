@@ -180,25 +180,19 @@ let config = {
             maxInitialRequests: 3,
             automaticNameDelimiter: '+',
             cacheGroups: {
-                vue: {
-                    test: /[\\/]node_modules[\\/](vue|vuex|vue-router)/,
-                    priority: 50,
-                },
-                element: {
-                    test: /[\\/]node_modules\/element-plus.*[\\/]/,
-                    priority: 50,
-                },
-                axios: {
-                    test: /[\\/]node_modules\/axios.*[\\/]/,
-                    priority: 50,
-                },
-                default: {
-                    enforce: true,
-                    reuseExistingChunk: true,
+                vendor: {
                     test: /[\\/]node_modules[\\/]/,
+                    name(module) {
+                        let packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/);
+
+                        if (!packageName) {
+                            return `unkown-${module.type}`;
+                        }
+
+                        return `chunk.${packageName[1].replace('@', '')}`;
+                    },
+                    priority:10,
                     filename: '[id].[hash:5].js',
-                    chunks: 'all',
-                    priority: -10,
                 },
             },
         },
