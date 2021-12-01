@@ -12,12 +12,15 @@ let webpack = require('webpack');
 let HappyPack = require('happypack');
 
 let {VueLoaderPlugin} = require('vue-loader');
+
 let HtmlWebpackPlugin = require('html-webpack-plugin');
 let MiniCssExtractPlugin = require('mini-css-extract-plugin');
-let ProgressBarPlugin = require('progress-bar-webpack-plugin');
+let DashboardPlugin = require('webpack-dashboard/plugin');
+let FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+
 let WebpackBuildNotifierPlugin = require('webpack-build-notifier');
 let Dashboard = require('webpack-dashboard');
-let DashboardPlugin = require('webpack-dashboard/plugin');
+
 let Components = require('unplugin-vue-components/webpack');
 let {ElementPlusResolver} = require('unplugin-vue-components/resolvers');
 
@@ -35,7 +38,7 @@ let config = {
     },
     output: {
         path: resolve('./dist/'),
-        filename: '[id].[hash:5].js',
+        filename: '[id].[chunkhash:5].js',
         globalObject: 'this',
     },
     module: {
@@ -88,7 +91,7 @@ let config = {
                     {
                         loader: 'url-loader',
                         options: {
-                            name: '[path][id].[hash:5].[ext]',
+                            name: '[path][id].[chunkhash:5].[ext]',
                             limit: false,
                         },
                     },
@@ -101,7 +104,7 @@ let config = {
                     options: {
                         inline: false,
                         fallback: false,
-                        name: '[id].[hash:5].[ext]',
+                        name: '[id].[chunkhash:5].[ext]',
                     },
                 },
             },
@@ -110,7 +113,7 @@ let config = {
                 use: {
                     loader: 'file-loader',
                     options: {
-                        name: '[path][id].[hash:5].[ext]',
+                        name: '[path][id].[chunkhash:5].[ext]',
                     },
                 },
             },
@@ -134,7 +137,6 @@ let config = {
             title: 'Webpack Build',
             suppressSuccess: true,
         }),
-        new ProgressBarPlugin(),
         new HappyPack({
             threadPool,
             loaders: [{
@@ -157,13 +159,14 @@ let config = {
             /* eslint-enable */
         }),
         new MiniCssExtractPlugin({
-            filename: '[id].[hash:5].css',
-            chunkFilename: '[id].[hash:5].css',
+            filename: '[id].[chunkhash:5].css',
+            chunkFilename: '[id].[chunkhash:5].css',
         }),
         new webpack.DefinePlugin({
             __VUE_OPTIONS_API__: JSON.stringify(true),
             __VUE_PROD_DEVTOOLS__: JSON.stringify(false)
         }),
+        new FriendlyErrorsWebpackPlugin(),
     ],
     optimization: {
         mangleWasmImports: true,
@@ -192,7 +195,7 @@ let config = {
                         return `chunk.${packageName[1].replace('@', '')}`;
                     },
                     priority:10,
-                    filename: '[id].[hash:5].js',
+                    filename: '[id].[chunkhash:5].js',
                 },
             },
         },

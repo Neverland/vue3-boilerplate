@@ -18,6 +18,7 @@ let resolve = dir => path.join(process.cwd(), dir);
 let mainConfig = {
     mode: 'development',
     devtool: 'cheap-module-source-map',
+    stats: 'errors-only',
     module: {
         rules: [
             {
@@ -32,7 +33,6 @@ let mainConfig = {
         ],
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
         // new BundleAnalyzerPlugin({
         //     analyzerHost: ip.address(),
         // }),
