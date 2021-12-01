@@ -13,7 +13,6 @@
 
 import {ref, getCurrentInstance} from 'vue';
 
-
 export default {
     name: 'index',
     setup() {

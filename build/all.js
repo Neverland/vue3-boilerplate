@@ -31,10 +31,13 @@ let threadPool = HappyPack.ThreadPool({size: os.cpus().length});
 let resolve = dir => path.join(process.cwd(), dir);
 
 let config = {
-    // cache: true,
+    cache: true,
     mode: 'production',
     entry: {
         app: resolve('/src/startup.ts'),
+    },
+    experiments: {
+        topLevelAwait: true,
     },
     output: {
         path: resolve('./dist/'),
@@ -48,14 +51,20 @@ let config = {
                 loader: 'vue-loader',
                 options: {
                     transformAssetUrls: {
+                        video: ['src', 'poster'],
+                        source: 'src',
                         audio: 'src',
-                    },
+                        img: 'src',
+                        image: ['xlink:href', 'href'],
+                        use: ['xlink:href', 'href']
+                     },
                 },
             },
             {
                 test: /\.(j|t)s$/,
                 loader: 'babel-loader',
                 exclude: [/node_modules/],
+                loader: 'babel-loader',
             },
             {
                 test: /\.css$/,
@@ -142,7 +151,7 @@ let config = {
             loaders: [{
                 loader: 'babel-loader',
             }],
-            verbose: true,
+            verbose: false,
         }),
         new VueLoaderPlugin(),
         new HtmlWebpackPlugin({
