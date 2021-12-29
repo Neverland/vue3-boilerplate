@@ -95,7 +95,7 @@ let config = {
                 ],
             },
             {
-                test: /\.(eot|svg|ttf|woff|woff2|png|jpe?g|svg|gif)$/,
+                test: /\.(eot|svg|ttf|woff|woff2)$/,
                 use: [
                     {
                         loader: 'url-loader',
@@ -105,6 +105,10 @@ let config = {
                         },
                     },
                 ],
+            },
+            {
+                test: /\.(jpg|png|jpeg|gif|svg)$/,
+                type: 'asset',
             },
             {
                 test: /\.worker\.js$/,
