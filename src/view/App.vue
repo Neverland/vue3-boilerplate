@@ -38,7 +38,6 @@ export default{
 
 <style>
     html, body {
-        min-width: 1440px;
         font-family: 'Avenir', Helvetica, Arial, sans-serif;
         -webkit-font-smoothing: antialiased;
         -webkit-tap-highlight-color: transparent;

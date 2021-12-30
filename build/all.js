@@ -108,7 +108,10 @@ let config = {
             },
             {
                 test: /\.(jpg|png|jpeg|gif|svg)$/,
-                type: 'asset',
+                type: 'asset/resource',
+                generate: {
+                    filename: 'assets/[id].[chunkhash:5].[ext]'
+                },
             },
             {
                 test: /\.worker\.js$/,
