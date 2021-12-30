@@ -109,7 +109,7 @@ let config = {
             {
                 test: /\.(jpg|png|jpeg|gif|svg)$/,
                 type: 'asset/resource',
-                generate: {
+                generator: {
                     filename: 'assets/[id].[chunkhash:5].[ext]'
                 },
             },
