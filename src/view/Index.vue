@@ -47,7 +47,7 @@ export default {
         };
     },
     mounted() {
-        let center = new TMap.LatLng(39.984120, 116.307484)
+        let center = new TMap.LatLng(39.984120, 116.307484);
         let map = new TMap.Map(this.$refs.map, {
             center,
         });
