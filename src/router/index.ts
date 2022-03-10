@@ -1,5 +1,5 @@
 /**
- * @file vuex store
+ * @file vuex router
  * @author ienix(guoaimin1@tal.com)
  *
  * @since 2021/11/19
@@ -7,23 +7,9 @@
 
 /* global Vue, Vuex */
 
-import {createRouter, createWebHashHistory} from 'vue-router'
+import router from './list';
+import guard from './guard';
 
-let Index = () => import(/* webpackChunkName: 'view'*/ '@/view/Index');
-let NotFound = () => import(/* webpackChunkName: 'view'*/ '@/view/NotFound');
+guard(router);
 
-export default createRouter({
-    history: createWebHashHistory(),
-    routes: [
-        {
-            path: '/:pathMatch(.*)*',
-            component: NotFound,
-            name: 'NotFound',
-        },
-        {
-            path: '/',
-            component: Index,
-            name: 'Index',
-        },    
-    ],
-});
+export default router;

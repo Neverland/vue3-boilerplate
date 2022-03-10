@@ -11,6 +11,7 @@
 
                     <helloWorld />
                 </div>
+                <div ref="map"></div>
             </el-main>
         </el-container>
     </div>
@@ -44,6 +45,12 @@ export default {
             index,
             toOther,
         };
+    },
+    mounted() {
+        let center = new TMap.LatLng(39.984120, 116.307484)
+        let map = new TMap.Map(this.$refs.map, {
+            center,
+        });
     },
 };
 

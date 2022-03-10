@@ -47,7 +47,6 @@ instance
     .interceptors
     .response
     .use(response => {
-        // ui: $load && $load.close();
 
         let {status = 0} = response;
         let {code = 0, data = {}, msg = ''} = response.data;
@@ -62,7 +61,7 @@ instance
                 return data;
             }
             else if (code === 403) {
-                store.set('Authorization', '');
+                // store.set('Authorization', '');
                 location.hash = '/login';
             }
 

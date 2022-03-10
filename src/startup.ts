@@ -14,7 +14,11 @@ import router from '@/router';
 
 import App from '@/view/App.vue';
 
+import {host, api, http} from '@/api';
+
 import '@/ui';
+
+console.log(host, 1111, api, 2222, http)
 
 let app = createApp(App);
 

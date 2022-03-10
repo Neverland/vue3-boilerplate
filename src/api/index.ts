@@ -6,7 +6,6 @@
  */
 
 import request from './request';
-import hosts from './host';
 
 export let api = request;
 
@@ -16,4 +15,4 @@ export let http = {
     },
 };
 
-export let host = hosts;
+export {default as host} from './host';
