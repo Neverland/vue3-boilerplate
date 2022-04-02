@@ -3,7 +3,7 @@
         <router-view></router-view>
     </div>
 </template>
-<script lang="ts">
+<script lang="ts" setup>
 /**
  * @file app
  * @author ienix(guoaimin1@tal.com)
@@ -13,18 +13,7 @@
 
 import {ref} from 'vue';
 
-export default{
-    setup(props) {
-        let name = ref('999');
-
-        return {
-            name
-        };
-    },
-    mounted() {
-
-    },
-};
+let name = ref('999');
 </script>
 
 <style lang="less" scoped>

@@ -3,7 +3,7 @@
         {{notFound}}
     </div>
 </template>
-<script lang="ts">
+<script lang="ts" setup>
 /**
  * @file NotFound
  * @author ienix(guoaimin1@tal.com)
@@ -13,15 +13,7 @@
 
 import {ref} from 'vue';
 
-export default {
-    setup(props) {
-        let notFound = ref('The page is not found!');
-
-        return {
-            notFound
-        };
-    },
-};
+let notFound = ref('The page is not found!');
 
 </script>
 
