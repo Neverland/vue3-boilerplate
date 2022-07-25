@@ -8,6 +8,7 @@
 import {createApp} from 'vue';
 
 import ElementPlus from 'element-plus';
+// import Vant from 'vant';
 
 import store from '@/store';
 import router from '@/router';
@@ -26,4 +27,5 @@ app
     .use(store)
     .use(router)
     .use(ElementPlus)
+    // .use(Vant)
     .mount('#app');

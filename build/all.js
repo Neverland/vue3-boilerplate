@@ -76,6 +76,7 @@ let config = {
                             importLoaders: 1,
                         },
                     },
+                    /* 'postcss-loader', */
                 ],
                 include: /\.module\.css$/,
             },
@@ -84,6 +85,7 @@ let config = {
                 use: [
                     MiniCssExtractPlugin.loader,
                     'css-loader',
+                    /* 'postcss-loader', */
                 ],
             },
             {
@@ -92,6 +94,7 @@ let config = {
                     'vue-style-loader',
                     'css-loader',
                     'less-loader',
+                    /* 'postcss-loader', */
                 ],
             },
             {

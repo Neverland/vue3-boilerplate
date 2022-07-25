@@ -7,7 +7,9 @@
 
 import request from './request';
 
-export let api = request;
+export declare interface iApi <U, T>{[U: string]: T & any};
+
+export let api: iApi<symbol, string> = request;
 
 export let http = {
     install(Vue) {
