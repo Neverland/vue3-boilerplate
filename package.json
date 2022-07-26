@@ -6,7 +6,6 @@
   "dependencies": {
     "axios": "^0.24.0",
     "element-plus": "^1.2.0-beta.3",
-    "lint-staged": "^12.0.3",
     "query-string": "^7.0.1",
     "store": "^2.0.12",
     "stylelint": "^14.1.0",
@@ -51,6 +50,7 @@
     "jdists-loader": "^0.0.26",
     "less": "^4.1.2",
     "less-loader": "^10.2.0",
+    "lint-staged": "^12.0.3",
     "mini-css-extract-plugin": "^2.4.5",
     "style-loader": "^3.3.1",
     "terser-webpack-plugin": "^5.2.5",
