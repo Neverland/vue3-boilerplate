@@ -42,6 +42,11 @@ let mainConfig = {
         compress: true,
         host: ip.address(),
         port: '8080',
+        client: {
+            overlay: {
+                warnings: false,
+            },
+        }
     }
 };
 

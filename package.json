@@ -68,7 +68,8 @@
     "webpack-dashboard": "^3.3.6",
     "webpack-dev-server": "^4.5.0",
     "webpack-jdists-loader": "^0.0.33",
-    "webpack-merge": "^5.8.0"
+    "webpack-merge": "^5.8.0",
+    "workbox-webpack-plugin": "^6.5.3"
   },
   "lint-staged": {
     "*.{ts,vue, css}": [

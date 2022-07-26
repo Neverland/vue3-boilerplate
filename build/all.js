@@ -17,6 +17,7 @@ let HtmlWebpackPlugin = require('html-webpack-plugin');
 let MiniCssExtractPlugin = require('mini-css-extract-plugin');
 let DashboardPlugin = require('webpack-dashboard/plugin');
 let FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+let WorkboxPlugin = require('workbox-webpack-plugin');
 
 let WebpackBuildNotifierPlugin = require('webpack-build-notifier');
 let Dashboard = require('webpack-dashboard');
@@ -186,6 +187,9 @@ let config = {
             __VUE_PROD_DEVTOOLS__: JSON.stringify(false)
         }),
         new FriendlyErrorsWebpackPlugin(),
+        new WorkboxPlugin.GenerateSW({
+            swDest: './serviceWorker.js'
+        }),
     ],
     optimization: {
         mangleWasmImports: true,
