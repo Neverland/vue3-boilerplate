@@ -22,7 +22,7 @@ let mainConfig = {
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.(j|t)s$/,
                 use: {
                     loader: 'webpack-jdists-loader',
                     options: {

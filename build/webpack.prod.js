@@ -18,7 +18,7 @@ let mainConfig = {
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.(j|t)s$/,
                 use: {
                     loader: 'webpack-jdists-loader',
                     options: {
@@ -38,6 +38,5 @@ let mainConfig = {
         ],
     },
 };
- 
+
  module.exports = merge(all, mainConfig);
- 
